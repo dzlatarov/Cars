@@ -1,11 +1,10 @@
-const initialState = {
-    searchTerm: '',
-    cars: []
-};
-export const carReducer = (state = initialState, action) => {
+import { FETCH_CARS } from '../actions/types'
+
+
+export const carReducer = (state = [], action) => {
     switch (action.type) {
-        case 'FETCH_CARS':
-            return [...state.cars, action.payload];
+        case FETCH_CARS:
+            return [...state, action.payload];
         default:
             return state;
     }
