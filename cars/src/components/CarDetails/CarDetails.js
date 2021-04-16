@@ -10,7 +10,7 @@ const CarDetails = (props) => {
     )
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => {    
 };
 
 export default connect(mapStateToProps, { fetchCarDetails })(CarDetails)

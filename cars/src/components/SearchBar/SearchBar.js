@@ -14,7 +14,7 @@ const SearchBar = ({ term, submitTerm }) => {
                 <input
                     autoComplete="off"
                     type="text"
-                    value={term}
+                    value={term.term}
                     onChange={(e) => onChange(e.target.value)}
                 />
             </div>

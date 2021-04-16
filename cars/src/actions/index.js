@@ -2,7 +2,15 @@ import vechicle from '../apis/vehicle'
 import shine from '../apis/shine'
 import { KEY } from '../apis/Config'
 
-import { FETCH_CARS, SUBMIT_TERM, FETCH_CARS_BY_VIN, FETCH_CAR, SUBMIT_DETAILS } from './types'
+import {
+    FETCH_CARS,
+    SUBMIT_TERM,
+    FETCH_CARS_BY_VIN,
+    FETCH_CAR,
+    SUBMIT_MAKE,
+    SUBMIT_MODEL,
+    SUBMIT_YEAR
+} from './types'
 
 export const fetchCarsByVIN = term => async (dispatch) => {
     const response = await vechicle.get(`/GetMakeForManufacturer/${term}?format=json`);
@@ -37,9 +45,23 @@ export const submitTerm = term => {
     }
 };
 
-export const submitDetails = details => {
+export const submitMake = make => {
     return {
-        type: SUBMIT_DETAILS,
-        payload: details
+        type: SUBMIT_MAKE,
+        payload: make
+    }
+};
+
+export const submitModel = model => {
+    return {
+        type: SUBMIT_MODEL,
+        payload: model
+    }
+};
+
+export const submitYear = year => {
+    return {
+        type: SUBMIT_YEAR,
+        payload: year
     }
 };
