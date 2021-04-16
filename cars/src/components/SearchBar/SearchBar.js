@@ -1,6 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
-import { submitTerm } from '../actions'
+import { submitTerm } from '../../actions'
 
 const SearchBar = ({ term, submitTerm }) => {
     const onChange = term => {

@@ -1,13 +1,13 @@
 import React from 'react'
-import CarList from '../CarList/CarList'
-import SearchBar from '../SearchBar';
+import CarDetails from '../CarDetails/CarDetails';
+import SearchBar from '../SearchBar/SearchBar';
 import './App.css'
 
 const App = () => {
     return (
         <div className="">
             <SearchBar />
-            <CarList />
+            <CarDetails />
         </div>
     );
 }
