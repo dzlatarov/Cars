@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
+import { fetchCarDetails} from '../../actions'
 
-const CarDetails = () => {
+const CarDetails = (props) => {
     return (
         <div>
             CarDetails
@@ -8,4 +10,7 @@ const CarDetails = () => {
     )
 }
 
-export default CarDetails
+const mapStateToProps = state => {
+};
+
+export default connect(mapStateToProps, { fetchCarDetails })(CarDetails)
