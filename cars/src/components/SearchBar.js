@@ -2,23 +2,23 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { submitTerm } from '../actions'
 
-const SearchBar = (props) => {
+const SearchBar = ({ term, submitTerm }) => {
     const onChange = term => {
-        props.submitTerm(term);
+        submitTerm(term);
     };
 
     return (
-        <div className="ui segment" style={{ marginTop: '1em' }}>
+        <div className="ui segment">
             <label>Car Search</label>
             <div className="ui fluid action input" >
                 <input
                     autoComplete="off"
                     type="text"
-                    value={props.term}
+                    value={term}
                     onChange={(e) => onChange(e.target.value)}
                 />
             </div>
-        </div>
+        </div >
     );
 }
 

@@ -1,10 +1,11 @@
 import React from 'react'
-import CarList from './CarList'
-import SearchBar from './SearchBar';
+import CarList from '../CarList/CarList'
+import SearchBar from '../SearchBar';
+import './App.css'
 
 const App = () => {
     return (
-        <div className="ui container">
+        <div className="">
             <SearchBar />
             <CarList />
         </div>

@@ -1,0 +1,15 @@
+.main-cars {
+    text-align: center;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+.main-cars__items {
+    list-style: none;        
+    width: 150px;    
+    display: inline-block;
+    border: 2px solid grey;
+    border-radius: 50px;
+    margin: 20px;
+    padding: 10px;  
+}
