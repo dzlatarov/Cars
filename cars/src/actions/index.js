@@ -24,16 +24,10 @@ export const fetchCars = () => async (dispatch) => {
     dispatch({ type: FETCH_CARS, payload: response.data.Results });
 };
 
-export const fetchCarDetails = detail => async dispatch => {
-    const response = await shine.get('/specs', {
-        params: {
-            make: detail.make,
-            model: detail.model,
-            year: detail.year,
-            fullData: 'true',
-            apikey: KEY
-        }
-    })
+export const fetchCarDetails = detail => async (dispatch, getState) => {   
+    console.log(getState());    
+    const url = `/make=${detail.make}&model=${detail.model}&year=${detail.year}&apikey=${KEY}`;
+    const response = await shine.get(`/specs${url}`);
 
     dispatch({ type: FETCH_CAR, payload: response.data });
 };

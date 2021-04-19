@@ -1,6 +1,6 @@
 import React from 'react'
 import CarDetails from '../CarDetails/CarDetails';
-import SearchDetails from '../SearchDetails.js/SearchDetails';
+import SearchDetails from '../SearchDetails/SearchDetails';
 import './App.css'
 
 const App = () => {

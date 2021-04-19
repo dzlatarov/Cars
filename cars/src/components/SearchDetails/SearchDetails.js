@@ -1,8 +1,15 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { submitMake, submitModel, submitYear } from '../../actions'
+import { useSelector, useDispatch } from 'react-redux'
+import { submitMake, submitModel, submitYear, fetchCarDetails } from '../../actions'
 
-const SearchDetails = ({ term, submitMake, submitModel, submitYear }) => {
+const SearchDetails = () => {
+    const term = useSelector(state => state.term);
+    const dispatch = useDispatch();
+
+    const api = () => {
+        dispatch(fetchCarDetails(term.term));
+    }
+
     return (
         <div className="ui segment">
             <div className="ui form">
@@ -12,7 +19,7 @@ const SearchDetails = ({ term, submitMake, submitModel, submitYear }) => {
                         <input
                             type="text"
                             value={term.make}
-                            onChange={(e) => submitMake(e.target.value)}
+                            onChange={(e) => dispatch(submitMake(e.target.value))}
                         />
                     </div>
                     <div className="field">
@@ -20,7 +27,7 @@ const SearchDetails = ({ term, submitMake, submitModel, submitYear }) => {
                         <input
                             type="text"
                             value={term.model}
-                            onChange={(e) => submitModel(e.target.value)}
+                            onChange={(e) => dispatch(submitModel(e.target.value))}
                         />
                     </div>
                     <div className="field">
@@ -28,24 +35,14 @@ const SearchDetails = ({ term, submitMake, submitModel, submitYear }) => {
                         <input
                             type="text"
                             value={term.year}
-                            onChange={(e) => submitYear(e.target.value)}
+                            onChange={(e) => dispatch(submitYear(e.target.value))}
                         />
                     </div>
+                    <button onClick={api} className="ui button primary">Submit</button>
                 </div>
             </div>
         </div>
     )
 }
 
-const mapStateToProps = state => {
-    console.log(state);
-    return {
-        term: state
-    };
-};
-
-export default connect(mapStateToProps, {
-    submitMake,
-    submitModel,
-    submitYear
-})(SearchDetails)
+export default SearchDetails

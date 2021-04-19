@@ -3,6 +3,6 @@ import { carReducer } from './carReducer'
 import { termReducer } from './termReducer'
 
 export default combineReducers({
-    cars: carReducer,
+    cars: carReducer,    
     term: termReducer
 })

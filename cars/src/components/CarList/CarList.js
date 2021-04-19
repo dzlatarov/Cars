@@ -1,12 +1,14 @@
 import React, { useEffect } from 'react'
-import { connect } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { fetchCars } from '../../actions'
 import './CarList.css'
 
-const CarList = ({ allCars, fetchCars }) => {
-    console.log(allCars);
+const CarList = () => {
+    const allCars = useSelector(state => state.cars);
+    const dispatch = useDispatch();
+
     useEffect(() => {
-        fetchCars()
+        dispatch(fetchCars());
         // eslint-disable-next-line
     }, [])
 
@@ -31,10 +33,4 @@ const CarList = ({ allCars, fetchCars }) => {
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        allCars: state.cars
-    }
-};
-
-export default connect(mapStateToProps, { fetchCars })(CarList);
+export default CarList
