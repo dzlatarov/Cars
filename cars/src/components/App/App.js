@@ -1,5 +1,5 @@
 import React from 'react'
-import CarDetails from '../CarDetails/CarDetails';
+import CarDetails from '../CarDetails/CarModels';
 import SearchDetails from '../SearchDetails/SearchDetails'
 import './App.css'
 

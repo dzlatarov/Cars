@@ -1,0 +1,22 @@
+.car-models__items {
+    margin: 0;
+    padding: 0;
+    list-style: none;  
+    text-align: center;  
+}
+
+.car-model__item {  
+   display: inline-block;
+   margin: 0 10px 15px 0;
+   padding: 8px;
+   vertical-align: middle;
+   border: 2px solid #cccc;
+   border-radius: 8px;
+   width: 15%;
+}
+
+.car-model__header {
+    font-size: 16px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
