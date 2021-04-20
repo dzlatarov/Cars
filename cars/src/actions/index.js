@@ -27,12 +27,13 @@ export const fetchCars = car => {
     }
 };
 
-export const fetchCarModels = detail => async (dispatch, getState) => {
-    console.log(getState());
-    const url = `GetModelsForMakeYear/make/${detail.make}/modelyear/${detail.year}?format=json`;
-    const response = await vechicle.get(`/${url}`);
-    console.log(response.data.Results);
-    // dispatch({ type: FETCH_CAR_MODELS, payload: response.data.Results });
+export const fetchCarModels = () => async (dispatch, getState) => {
+    const { make, year } = getState().term;
+
+    const url = `/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+    const response = await vechicle.get(`${url}`);
+    
+    dispatch({ type: FETCH_CAR_MODELS, payload: response.data.Results });    
 };
 
 export const submitTerm = vin => {

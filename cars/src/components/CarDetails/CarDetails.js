@@ -1,8 +1,9 @@
 import React from 'react'
-import { connect } from 'react-redux'
-import { fetchCarModels } from '../../actions'
+import { useSelector } from 'react-redux'
 
 const CarDetails = (props) => {
+    const cars = useSelector(state => state.cars);    
+
     return (
         <div>
             CarDetails
@@ -10,11 +11,4 @@ const CarDetails = (props) => {
     )
 }
 
-const mapStateToProps = state => {
-    return {
-        car: state.cars.car,
-        terms: state.term
-    }
-};
-
-export default connect(mapStateToProps, { fetchCarModels })(CarDetails)
+export default CarDetails;

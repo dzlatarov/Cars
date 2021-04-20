@@ -6,8 +6,8 @@ const SearchDetails = () => {
     const term = useSelector(state => state.term);
     const dispatch = useDispatch();
 
-    const api = () => {
-        dispatch(fetchCarModels(term.term));
+    const apiCall = () => {
+        dispatch(fetchCarModels());
     }
 
     return (
@@ -30,7 +30,7 @@ const SearchDetails = () => {
                             onChange={(e) => dispatch(submitYear(e.target.value))}
                         />
                     </div>
-                    <button onClick={api} className="ui button">Submit</button>
+                    <button onClick={apiCall} className="ui button">Submit</button>
                 </div>
             </div>
         </div>
