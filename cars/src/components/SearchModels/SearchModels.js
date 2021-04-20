@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { submitMake, submitYear, fetchCarModels, submitType } from '../../actions'
 
-const SearchDetails = () => {
+const SearchModels = () => {
     const term = useSelector(state => state.term);
     const dispatch = useDispatch();
 
@@ -45,4 +45,4 @@ const SearchDetails = () => {
     )
 }
 
-export default SearchDetails
+export default SearchModels

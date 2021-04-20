@@ -15,6 +15,10 @@
    width: 15%;
 }
 
+.car-model__content {
+    background-color: #cccc;
+}
+
 .car-model__header {
     font-size: 16px;
     font-weight: bold;
