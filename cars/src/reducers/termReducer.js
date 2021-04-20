@@ -2,13 +2,15 @@ import {
     SUBMIT_TERM,
     SUBMIT_MAKE,
     SUBMIT_MODEL,
-    SUBMIT_YEAR
+    SUBMIT_YEAR,
+    SUBMIT_VEHICLE_TYPE
 } from '../actions/types'
 
 const initialState = {
     make: '',
     model: '',
-    year: '',  
+    year: '',
+    vehicleType: '',
     term: ''
 };
 
@@ -22,6 +24,8 @@ export const termReducer = (state = initialState, action) => {
             return { ...state, model: action.payload }
         case SUBMIT_YEAR:
             return { ...state, year: action.payload }
+        case SUBMIT_VEHICLE_TYPE:
+            return { ...state, vehicleType: action.payload }
         default:
             return state;
     }

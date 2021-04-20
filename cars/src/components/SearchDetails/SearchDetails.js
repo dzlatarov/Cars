@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { submitMake, submitYear, fetchCarModels } from '../../actions'
+import { submitMake, submitYear, fetchCarModels, submitType } from '../../actions'
 
 const SearchDetails = () => {
     const term = useSelector(state => state.term);
@@ -28,6 +28,14 @@ const SearchDetails = () => {
                             type="text"
                             value={term.year}
                             onChange={(e) => dispatch(submitYear(e.target.value))}
+                        />
+                    </div>
+                    <div className="field">
+                        <label>Type</label>
+                        <input
+                            type="text"
+                            value={term.vehicleType}
+                            onChange={(e) => dispatch(submitType(e.target.value))}
                         />
                     </div>
                     <button onClick={apiCall} className="ui button">Submit</button>

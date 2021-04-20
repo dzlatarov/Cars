@@ -7,7 +7,8 @@ import {
     FETCH_CAR_MODELS,
     SUBMIT_MAKE,
     SUBMIT_MODEL,
-    SUBMIT_YEAR
+    SUBMIT_YEAR,
+    SUBMIT_VEHICLE_TYPE
 } from './types'
 
 export const fetchCarsByVIN = term => async (dispatch) => {
@@ -28,12 +29,11 @@ export const fetchCars = car => {
 };
 
 export const fetchCarModels = () => async (dispatch, getState) => {
-    const { make, year } = getState().term;
-
-    const url = `/getmodelsformakeyear/make/${make}/modelyear/${year}?format=json`;
+    const { make, year, vehicleType } = getState().term;
+    const url = `/getmodelsformakeyear/make/${make}/modelyear/${year}/vehicleType/${vehicleType}?format=json`;
     const response = await vechicle.get(`${url}`);
-    
-    dispatch({ type: FETCH_CAR_MODELS, payload: response.data.Results });    
+
+    dispatch({ type: FETCH_CAR_MODELS, payload: response.data.Results });
 };
 
 export const submitTerm = vin => {
@@ -61,5 +61,12 @@ export const submitYear = year => {
     return {
         type: SUBMIT_YEAR,
         payload: year
+    }
+};
+
+export const submitType = type => {
+    return {
+        type: SUBMIT_VEHICLE_TYPE,
+        payload: type
     }
 };

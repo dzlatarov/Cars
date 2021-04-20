@@ -13,7 +13,7 @@ export const carReducer = (state = initialState, action) => {
         case FETCH_CARS:
             return [...state.cars, action.payload];
         case FETCH_CAR_MODELS:
-            return [...state.cars, action.payload];
+            return [{ ...state.cars, ...action.payload }];
         default:
             return state;
     }
