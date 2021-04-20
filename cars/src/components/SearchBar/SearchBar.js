@@ -1,10 +1,13 @@
 import React from 'react'
-import { connect } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
 import { submitTerm } from '../../actions'
 
-const SearchBar = ({ term, submitTerm }) => {
+const SearchBar = () => {
+    const term = useSelector(state => state.term.term);
+    const dispatch = useDispatch();
+
     const onChange = term => {
-        submitTerm(term);
+        dispatch(submitTerm(term));
     };
 
     return (
@@ -14,7 +17,7 @@ const SearchBar = ({ term, submitTerm }) => {
                 <input
                     autoComplete="off"
                     type="text"
-                    value={term.term}
+                    value={term}
                     onChange={(e) => onChange(e.target.value)}
                 />
             </div>
@@ -22,10 +25,4 @@ const SearchBar = ({ term, submitTerm }) => {
     );
 }
 
-const mapStateToProps = state => {
-    return {
-        term: state.term
-    };
-};
-
-export default connect(mapStateToProps, { submitTerm })(SearchBar)
+export default SearchBar;

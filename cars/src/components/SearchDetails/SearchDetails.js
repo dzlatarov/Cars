@@ -1,13 +1,13 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { submitMake, submitModel, submitYear, fetchCarDetails } from '../../actions'
+import { submitMake, submitYear, fetchCarModels } from '../../actions'
 
 const SearchDetails = () => {
     const term = useSelector(state => state.term);
     const dispatch = useDispatch();
 
     const api = () => {
-        dispatch(fetchCarDetails(term.term));
+        dispatch(fetchCarModels(term.term));
     }
 
     return (
@@ -23,14 +23,6 @@ const SearchDetails = () => {
                         />
                     </div>
                     <div className="field">
-                        <label>Model</label>
-                        <input
-                            type="text"
-                            value={term.model}
-                            onChange={(e) => dispatch(submitModel(e.target.value))}
-                        />
-                    </div>
-                    <div className="field">
                         <label>Year</label>
                         <input
                             type="text"
@@ -38,7 +30,7 @@ const SearchDetails = () => {
                             onChange={(e) => dispatch(submitYear(e.target.value))}
                         />
                     </div>
-                    <button onClick={api} className="ui button primary">Submit</button>
+                    <button onClick={api} className="ui button">Submit</button>
                 </div>
             </div>
         </div>
