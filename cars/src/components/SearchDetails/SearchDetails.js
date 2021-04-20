@@ -38,7 +38,7 @@ const SearchDetails = () => {
                             onChange={(e) => dispatch(submitType(e.target.value))}
                         />
                     </div>
-                    <button onClick={apiCall} className="ui button">Submit</button>
+                    <div className="ui button" onClick={apiCall}>Submit</div>
                 </div>
             </div>
         </div>

@@ -3,7 +3,8 @@ import { useSelector } from 'react-redux'
 import './CarModels.css'
 
 const CarDetails = () => {
-    const cars = useSelector(state => Object.values(state.cars[0]));
+    const carsObject = useSelector(state => state.cars[0]);
+    const cars = carsObject ? Object.values(carsObject) : null;
     const renderCars = () => {
         if (cars) {
             return cars.map(car => {
