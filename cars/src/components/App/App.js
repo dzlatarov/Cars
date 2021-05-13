@@ -10,7 +10,7 @@ const App = () => {
         <div className="ui container">
             <BrowserRouter>
                 <Header />
-                <Route path="/cars/search" exact component={SearchModels} />
+                <Route path="/cars/search/models" exact component={SearchModels} />
                 <Route path="/cars/search" exact component={CarDetails} />
             </BrowserRouter>
         </div>

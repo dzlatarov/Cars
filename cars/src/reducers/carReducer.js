@@ -2,11 +2,11 @@ import { FETCH_CAR_BY_VIN, FETCH_CAR_MODELS } from '../actions/types'
 
 const initialState = {
     cars: [],
-    currentCar: {}
+    currentCar: null
 };
 
 export const carReducer = (state = initialState, action) => {
-    switch (action.type) {        
+    switch (action.type) {
         case FETCH_CAR_BY_VIN:
             return {
                 ...state,
