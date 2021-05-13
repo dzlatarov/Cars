@@ -8,7 +8,7 @@ const Header = () => {
                 Search Models
             </Link>
             <div className="right menu">
-                <Link to="/" className="item">
+                <Link to="/cars/search/vin" className="item">
                     Search by VIN number
             </Link>
             </div>

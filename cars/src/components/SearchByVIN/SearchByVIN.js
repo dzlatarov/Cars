@@ -1,24 +1,33 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
+import { Formik, Form } from 'formik'
+import Input from '../Input/Input';
+import { fetchCarByVIN } from '../../actions/index'
 
-const SearchBar = () => {    
+const SearchByVIN = () => {
     const dispatch = useDispatch();
 
-    const onChange = term => {
-        dispatch(submitTerm(term));
+    const onSubmitHandler = vinNumber => {
+        dispatch(fetchCarByVIN(vinNumber));
     };
 
     return (
-        <div className="ui segment">
-            <label>Car Search</label>
-            <div className="ui fluid action input" >
-                <input
-                    autoComplete="off"
-                    type="text"
-                />
-            </div>
-        </div >
+        <Formik
+            initialValues={{
+                vin: ''
+            }}
+        >
+            {formik => (
+                <div>
+                    {console.log(formik)}
+                    <Form>
+                        <Input label="VIN Number" name="vin" type="text" />
+                        <button>Submit</button>
+                    </Form>
+                </div >
+            )}
+        </Formik >
     );
 }
 
-export default SearchBar;
+export default SearchByVIN;
