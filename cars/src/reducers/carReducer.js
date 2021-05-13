@@ -1,17 +1,17 @@
-import { FETCH_CARS, FETCH_CARS_BY_VIN, FETCH_CAR_MODELS } from '../actions/types'
+import { FETCH_CAR_BY_VIN, FETCH_CAR_MODELS } from '../actions/types'
 
 const initialState = {
-    car: {},
-    cars: []
+    cars: [],
+    currentCar: {}
 };
 
 export const carReducer = (state = initialState, action) => {
-    switch (action.type) {
-        case FETCH_CARS_BY_VIN:
-            //To do
-            return state;
-        case FETCH_CARS:
-            return [...state.cars, action.payload];
+    switch (action.type) {        
+        case FETCH_CAR_BY_VIN:
+            return {
+                ...state,
+                currentCar: action.payload
+            };
         case FETCH_CAR_MODELS:
             return [{ ...state.cars, ...action.payload }];
         default:

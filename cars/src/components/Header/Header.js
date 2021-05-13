@@ -5,11 +5,11 @@ const Header = () => {
     return (
         <div className="ui secondary pointing menu">
             <Link to="/cars/search" className="item">
-                Search by Make Year and Type
+                Search Models
             </Link>
             <div className="right menu">
                 <Link to="/" className="item">
-                    Canadian Search
+                    Search by VIN number
             </Link>
             </div>
         </div>

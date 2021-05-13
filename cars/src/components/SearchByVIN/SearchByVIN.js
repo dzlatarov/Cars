@@ -1,9 +1,7 @@
 import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
-import { submitTerm } from '../../actions'
 
-const SearchBar = () => {
-    const term = useSelector(state => state.term.term);
+const SearchBar = () => {    
     const dispatch = useDispatch();
 
     const onChange = term => {
@@ -17,8 +15,6 @@ const SearchBar = () => {
                 <input
                     autoComplete="off"
                     type="text"
-                    value={term}
-                    onChange={(e) => onChange(e.target.value)}
                 />
             </div>
         </div >
