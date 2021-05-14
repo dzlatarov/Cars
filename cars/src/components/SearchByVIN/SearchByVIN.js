@@ -1,5 +1,5 @@
 import React from 'react'
-import { useSelector, useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import { Formik, Form } from 'formik'
 import Input from '../Input/Input';
 import { fetchCarByVIN } from '../../actions/index'
@@ -7,7 +7,7 @@ import { fetchCarByVIN } from '../../actions/index'
 const SearchByVIN = () => {
     const dispatch = useDispatch();
 
-    const onSubmitHandler = vinNumber => {        
+    const onSubmitHandler = vinNumber => {
         dispatch(fetchCarByVIN(vinNumber));
     };
 
@@ -21,7 +21,7 @@ const SearchByVIN = () => {
             }}
         >
             {formik => (
-                <div>                    
+                <div>
                     <Form>
                         <Input label="VIN Number" name="vin" type="text" />
                         <button type="submit">Submit</button>
