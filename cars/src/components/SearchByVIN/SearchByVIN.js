@@ -7,7 +7,7 @@ import { fetchCarByVIN } from '../../actions/index'
 const SearchByVIN = () => {
     const dispatch = useDispatch();
 
-    const onSubmitHandler = vinNumber => {
+    const onSubmitHandler = vinNumber => {        
         dispatch(fetchCarByVIN(vinNumber));
     };
 
@@ -16,13 +16,15 @@ const SearchByVIN = () => {
             initialValues={{
                 vin: ''
             }}
+            onSubmit={values => {
+                onSubmitHandler(values);
+            }}
         >
             {formik => (
-                <div>
-                    {console.log(formik)}
+                <div>                    
                     <Form>
                         <Input label="VIN Number" name="vin" type="text" />
-                        <button>Submit</button>
+                        <button type="submit">Submit</button>
                     </Form>
                 </div >
             )}

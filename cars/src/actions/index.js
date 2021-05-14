@@ -5,10 +5,11 @@ import {
     FETCH_CAR_MODELS,
 } from './types'
 
-export const fetchCarByVIN = term => async (dispatch) => {
-    const response = await vechicle.get(`/DecodeVin/${term}?format=json`);
+export const fetchCarByVIN = vinNumber => async (dispatch) => {
+    const response = await vechicle.get(`/decodevin/${vinNumber.vin}?format=json`);
+    const data = response.data.Results.filter(result => result.Value !== null && result.Value !== 'Not Applicable');
 
-    dispatch({ type: FETCH_CAR_BY_VIN, payload: response.data });
+    dispatch({ type: FETCH_CAR_BY_VIN, payload: data });
 };
 
 export const fetchCarModels = () => async (dispatch, getState) => {

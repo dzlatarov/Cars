@@ -2,8 +2,7 @@ import React from 'react'
 import { useField } from 'formik'
 
 const Input = ({ label, ...props }) => {
-    const [field, meta] = useField(props);
-    console.log(field);
+    const [field, meta] = useField(props);    
     return (
         <div>
             <label>{label}</label>
