@@ -7,7 +7,7 @@ import {
 
 export const fetchCarByVIN = vinNumber => async (dispatch) => {
     const response = await vechicle.get(`/decodevin/${vinNumber.vin}?format=json`);
-    const data = response.data.Results.filter(result => result.Value !== null && result.Value !== 'Not Applicable');
+    const data = response.data.Results.filter(result => result.Value !== null && result.Value !== 'Not Applicable' && result.Value !== '' && result.Value !== '0');
 
     dispatch({ type: FETCH_CAR_BY_VIN, payload: data });
 };

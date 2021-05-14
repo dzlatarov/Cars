@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector } from 'react-redux'
 import './CarModels.css'
 
-const CarDetails = () => {
+const CarModels = () => {
     const carsObject = useSelector(state => state.cars[0]);
     const cars = carsObject ? Object.values(carsObject) : null;
     const renderCars = () => {
@@ -33,4 +33,4 @@ const CarDetails = () => {
     );
 };
 
-export default CarDetails;
+export default CarModels;
