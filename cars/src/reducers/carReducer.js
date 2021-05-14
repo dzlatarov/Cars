@@ -2,7 +2,7 @@ import { FETCH_CAR_BY_VIN, FETCH_CAR_MODELS } from '../actions/types'
 
 const initialState = {
     cars: [],
-    currentCar: null
+    specifications: []
 };
 
 export const carReducer = (state = initialState, action) => {
@@ -10,7 +10,7 @@ export const carReducer = (state = initialState, action) => {
         case FETCH_CAR_BY_VIN:
             return {
                 ...state,
-                currentCar: action.payload
+                specifications: action.payload
             };
         case FETCH_CAR_MODELS:
             return [{ ...state.cars, ...action.payload }];
