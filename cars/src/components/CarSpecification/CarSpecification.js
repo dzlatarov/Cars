@@ -13,7 +13,7 @@ const CarSpecification = () => {
     return (
         <div>
             {
-                specifications && (
+                specifications && make && year &&(
                     <div>
                         <>
                             <div>Car Model: {model ? model.Value : ' '}</div>

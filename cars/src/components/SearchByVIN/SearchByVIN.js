@@ -20,14 +20,14 @@ const SearchByVIN = () => {
                 onSubmitHandler(values);
             }}
         >
-            {formik => (
-                <div>
-                    <Form>
-                        <Input label="VIN Number" name="vin" type="text" />
-                        <button type="submit">Submit</button>
-                    </Form>
-                </div >
-            )}
+                {formik => (
+                    <div>
+                        <Form>
+                            <Input label="VIN Number" name="vin" type="text" />
+                            <button type="submit">Submit</button>
+                        </Form>
+                    </div >
+                )}
         </Formik >
     );
 }
