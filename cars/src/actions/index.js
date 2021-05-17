@@ -12,9 +12,8 @@ export const fetchCarByVIN = vinNumber => async (dispatch) => {
     dispatch({ type: FETCH_CAR_BY_VIN, payload: data });
 };
 
-export const fetchCarModels = () => async (dispatch, getState) => {
-    const { make, year, vehicleType } = getState().term;
-    const url = `/getmodelsformakeyear/make/${make}/modelyear/${year}/vehicleType/${vehicleType}?format=json`;
+export const fetchCarModels = (formValues) => async (dispatch) => {
+    const url = `/getmodelsformakeyear/make/${formValues.make}/modelyear/${formValues.year}/vehicleType/${formValues.type}?format=json`;
     const response = await vechicle.get(`${url}`);
 
     dispatch({ type: FETCH_CAR_MODELS, payload: response.data.Results });

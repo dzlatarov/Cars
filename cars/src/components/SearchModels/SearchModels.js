@@ -2,48 +2,33 @@ import React from 'react'
 import { useDispatch } from 'react-redux'
 import { Formik, Form } from 'formik'
 import { fetchCarModels } from '../../actions'
+import Input from '../Input/Input'
 
 const SearchModels = () => {
     const dispatch = useDispatch();
 
-    const apiCall = () => {
-        dispatch(fetchCarModels());
+    const onSubmitHandler = formValues => {        
+         dispatch(fetchCarModels(formValues));
     }
 
     return (
-        <Formik>
+        <Formik
+            initialValues={{
+                make: '',
+                year: '',
+                type: ''
+            }}
+            onSubmit={onSubmitHandler}
+        >
             <div>
                 <Form>
-
+                    <Input label="Car Make" name="make" type="text" />
+                    <Input label="Car Year" name="year" type="text" />
+                    <Input label="Car Type" name="type" type="text" />
+                    <button type="submit">Submit</button>
                 </Form>
             </div>
-        </Formik>
-
-        // <div className="ui segment">
-        //     <div className="ui form">
-        //         <div className="fields">
-        //             <div className="field">
-        //                 <label>Make</label>
-        //                 <input
-        //                     type="text"
-        //                 />
-        //             </div>
-        //             <div className="field">
-        //                 <label>Year</label>
-        //                 <input
-        //                     type="text"
-        //                 />
-        //             </div>
-        //             <div className="field">
-        //                 <label>Type</label>
-        //                 <input
-        //                     type="text"
-        //                 />
-        //             </div>
-        //             <div className="ui button" onClick={apiCall}>Submit</div>
-        //         </div>
-        //     </div>
-        // </div>
+        </Formik>        
     )
 }
 
